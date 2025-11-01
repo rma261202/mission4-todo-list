@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List App Sesuai Mission</title>
+    <!-- Link ke Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        /* Style custom untuk icon date picker di dark mode */
+        input[type="date"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-900 text-gray-200 flex flex-col items-center min-h-screen p-4 sm:p-10">
+
+    <div class="bg-slate-800 p-6 sm:p-8 rounded-xl shadow-2xl w-full max-w-4xl">
+        <header class="mb-6">
+            <h1 class="text-center text-white text-3xl font-bold">The Mission: To-Do List</h1>
+            <!-- Komponen Profile & Waktu -->
+            <div class="flex justify-between items-center mt-4 text-slate-400 border-b border-slate-700 pb-4">
+                <div id="profile-info">
+                    <p class="font-bold text-lg text-white">RMA</p>
+                    <p class="text-sm">Software Engineer</p>
+                </div>
+                <div id="time-display" class="text-right">
+                    <p id="current-date" class="font-semibold text-white"></p>
+                    <p id="current-time" class="text-sm"></p>
+                </div>
+            </div>
+        </header>
+
+        <!-- Form untuk menambahkan to-do baru -->
+        <form id="todo-form" class="mb-5">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-3">
+                <input type="text" id="todo-input" placeholder="Tuliskan tugas baru..." autocomplete="off" class="md:col-span-5 p-3 border border-slate-600 rounded-lg bg-slate-900 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+                <select id="priority-input" class="md:col-span-3 p-3 border border-slate-600 rounded-lg bg-slate-900 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+                    <option value="Low">Prioritas Rendah</option>
+                    <option value="Medium">Prioritas Sedang</option>
+                    <option value="High">Prioritas Tinggi</option>
+                </select>
+                <input type="date" id="due-date-input" title="Tenggat Waktu" class="md:col-span-3 p-3 border border-slate-600 rounded-lg bg-slate-900 text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-500 transition">
+                <button type="submit" class="md:col-span-1 bg-purple-600 hover:bg-purple-700 text-white text-2xl font-bold p-3 rounded-lg transition-transform duration-200 hover:-translate-y-0.5">+</button>
+            </div>
+        </form>
+
+        <!-- Tombol Aksi -->
+        <div class="flex justify-end mb-5">
+            <button id="delete-all-btn" class="w-full sm:w-auto bg-red-600 hover:bg-red-700 text-white font-semibold p-3 rounded-lg transition-transform duration-200 hover:-translate-y-0.5">Hapus Semua Tugas</button>
+        </div>
+
+        <!-- Daftar "To Do" -->
+        <div class="mb-8">
+            <h2 class="text-xl font-bold text-white mb-3">To Do</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm sm:text-base">
+                    <thead>
+                        <tr class="border-b border-slate-700">
+                            <th class="p-4 text-left font-medium text-slate-400 w-2/5">Tugas</th>
+                            <th class="p-4 text-left font-medium text-slate-400">Prioritas</th>
+                            <th class="p-4 text-left font-medium text-slate-400">Tenggat</th>
+                            <th class="p-4 text-left font-medium text-slate-400">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="todo-list">
+                        <!-- Tugas yang belum selesai akan muncul di sini -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Daftar "Done" -->
+        <div>
+            <h2 class="text-xl font-bold text-white mb-3">Done</h2>
+            <div class="overflow-x-auto">
+                <table class="w-full text-sm sm:text-base">
+                    <thead>
+                        <tr class="border-b border-slate-700">
+                             <th class="p-4 text-left font-medium text-slate-400 w-2/5">Tugas</th>
+                            <th class="p-4 text-left font-medium text-slate-400">Prioritas</th>
+                            <th class="p-4 text-left font-medium text-slate-400">Tenggat</th>
+                            <th class="p-4 text-left font-medium text-slate-400">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody id="done-list">
+                        <!-- Tugas yang sudah selesai akan muncul di sini -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <footer class="text-center mt-8 text-sm text-slate-500">
+        <p>&copy; 2025 rma261202 All rights reserved.</p>
+    </footer>
+
+    <!-- Path ke JavaScript sudah disesuaikan -->
+    <script src="js/script.js"></script>
+</body>
+</html>
