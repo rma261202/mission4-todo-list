@@ -1,6 +1,10 @@
 # 📝 Productivity Task Management Dashboard
 
 <p align="center">
+  <img src="./assets/app-preview.png" alt="Tampilan Aplikasi" width="600">
+</p>
+
+<p align="center">
   <a href="#-english-description">🇬🇧 English</a> | <a href="#-deskripsi-bahasa-indonesia">🇮🇩 Bahasa Indonesia</a>
 </p>
 
